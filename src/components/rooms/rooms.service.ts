@@ -7,6 +7,7 @@ export const createRoomService = (room: RoomsCreateDto) => {
       .create({
         title: room.title,
         room_number: room.room_number,
+        room_type: room.room_type,
         description: room.description,
         price: room.price,
       })
