@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import { Sequelize } from "sequelize";
 
+import customers from "../components/customers/customers.model";
 import rooms from "../components/rooms/rooms.model";
 
 dotenv.config({ path: `.env` });
@@ -18,6 +19,7 @@ const sequelizeInstance = new Sequelize(connString, {
 
 const dbContext = {
   rooms: rooms(sequelizeInstance),
+  customers: customers(sequelizeInstance),
 };
 
 export { Sequelize, sequelizeInstance, dbContext };
