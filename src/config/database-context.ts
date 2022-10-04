@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import { Sequelize } from "sequelize";
 
+import bookings from "../components/bookings/bookings.model";
 import customers from "../components/customers/customers.model";
 import rooms from "../components/rooms/rooms.model";
 
@@ -20,6 +21,7 @@ const sequelizeInstance = new Sequelize(connString, {
 const dbContext = {
   rooms: rooms(sequelizeInstance),
   customers: customers(sequelizeInstance),
+  bookings: bookings(sequelizeInstance),
 };
 
 export { Sequelize, sequelizeInstance, dbContext };

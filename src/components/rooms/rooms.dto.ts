@@ -6,4 +6,5 @@ export type RoomsCreateDto = {
   room_type: typeof RoomType;
   price?: number;
   description: number;
+  max_guests: number;
 };

@@ -75,6 +75,23 @@ export default (sequelize: Sequelize) => {
         },
       },
     },
+    max_guests: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isNumber: (value: number, next: NextFunction) => {
+          if (isNaN(value)) {
+            return next("Max guests must be a valid number");
+          }
+
+          if (!isNaN(value) && value < 0) {
+            return next("Max guests must be a positive number");
+          }
+
+          return next();
+        },
+      },
+    },
     title: {
       type: DataTypes.STRING({ length: 255 }),
       allowNull: false,
